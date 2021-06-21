@@ -1,0 +1,23 @@
+version: "3.1"
+
+services:
+  db:
+    container_name: mongoDB
+    image: mongo:latest
+    restart: always
+    volumes:
+      - ./acmeData:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE= AcmeDB
+    ports:
+      - 27017:27017
+
+  licenseinit:
+    build: ./licenseinit
+    links:
+      - db
+
+  assetinit:
+    build: ./assetinit
+    links:
+      - db
