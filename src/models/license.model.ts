@@ -1,5 +1,6 @@
 import { Schema, model } from "mongoose";
 import { ILicense } from "../interfaces/license.interface";
+
 const LicenseSchema = new Schema({
     software: {
         type: String,
@@ -7,5 +8,4 @@ const LicenseSchema = new Schema({
         trim: true
     }
 });
-
 export const LicenseModel = model<ILicense>('License', LicenseSchema);

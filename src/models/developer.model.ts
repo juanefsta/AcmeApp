@@ -1,5 +1,9 @@
 import { Schema, model } from "mongoose";
 import { IDeveloper } from "../interfaces/developer.interface";
+import { AssetSchema } from "./schemas/asset.schema";
+import { LicenseSchema } from "./schemas/license.schema";
+
+
 const DeveloperSchema = new Schema({
     fullname: {
         type: String,
@@ -10,6 +14,12 @@ const DeveloperSchema = new Schema({
         type: Boolean,
         required: true,
         default: true
+    },
+    asset: {
+        type: AssetSchema
+    },
+    license: {
+        type: LicenseSchema
     }
 });
 
