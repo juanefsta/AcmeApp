@@ -21,3 +21,18 @@ services:
     build: ./assetinit
     links:
       - db
+  
+  backend:
+    build:
+      context: .
+      dockerfile: ./src/Dockerfile
+      target: base
+    volumes:
+      - ./src:/home/acmeApp
+      - ./nodemon.json:/home/acmeApp/nodemon.json
+    container_name: backend
+    expose:
+      - '4000'
+    ports:
+      - '4001:4000'
+    command: npm run dev

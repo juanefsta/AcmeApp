@@ -4,8 +4,10 @@
   "description": "Backend - Rest API for AcmeApp",
   "main": "./dist/server.js",
   "scripts": {
-    "start": "nodemon"
-    },
+    "start": "NODE_PATH=./dist node dist/index.js",
+    "build": "tsc -p .",
+    "dev": "nodemon"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/juanefsta/AcmeApp.git"
