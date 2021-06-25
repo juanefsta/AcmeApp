@@ -14,9 +14,9 @@ export class DeveloperController {
     this.router.put("/disable", this.disable);
     this.router.put("/", this.editDeveloper);
     this.router.post("/asset", this.addAsset);
-    // this.router.delete("/asset/:id", this.deleteAsset);
-    // this.router.post("/license", this.addlicense);
-    // this.router.delete("/license/:id", this.deleteLicense);
+    this.router.delete("/asset", this.deleteAsset);
+    this.router.post("/license", this.addlicense);
+    this.router.delete("/license", this.deleteLicense);
   }
 
   private getAll = async (_: Request, res: Response) => {
@@ -48,57 +48,55 @@ export class DeveloperController {
   
   private addAsset = async (req: Request, res: Response) => {
     try {
-      const addResult = await this.developerService.addAsset(req.body);
+      const addResult = await this.developerService.addAsset(req.body.devId, req.body.assetId);
       res.send(addResult);
     } catch (e) {
       res.status(500).send(e.message);
     }
   };
 
-  // private delete = async (req: Request, res: Response) => {
-  //   try {
+  private delete = async (req: Request, res: Response) => {
+    try {
       
-  //     const addResult = await this.developerService.deleteAsset(
-  //       req.params.id
-  //     );
-  //     res.send(addResult);
-  //   } catch (e) {
-  //     res.status(500).send(e.message);
-  //   }
-  // };
+      const addResult = await this.developerService.deleteAsset(
+        req.params.id
+      );
+      res.send(addResult);
+    } catch (e) {
+      res.status(500).send(e.message);
+    }
+  };
 
-  // private deleteAsset = async (req: Request, res: Response) => {
-  //   try {
-  //     const addResult = await this.developerService.deleteAsset(req.body);
-  //     res.send(addResult);
-  //   } catch (e) {
-  //     res.status(500).send(e.message);
-  //   }
-  // };
+  private deleteAsset = async (req: Request, res: Response) => {
+    try {
+      const addResult = await this.developerService.deleteAsset(req.body);
+      res.send(addResult);
+    } catch (e) {
+      res.status(500).send(e.message);
+    }
+  };
 
-  // private addlicense = async (req: Request, res: Response) => {
-  //   try {
-  //     const addResult = await this.developerService.addlicense(req.body);
-  //     res.send(addResult);
-  //   } catch (e) {
-  //     res.status(500).send(e.message);
-  //   }
-  // };
+  private addlicense = async (req: Request, res: Response) => {
+    try {
+      const addResult = await this.developerService.addlicense(req.body.devId, req.body.licenseId);
+      res.send(addResult);
+    } catch (e) {
+      res.status(500).send(e.message);
+    }
+  };
 
-  // private deleteLicense = async (req: Request, res: Response) => {
-  //   try {
-  //     const addResult = await this.developerService.deleteLicense(req.body);
-  //     res.send(addResult);
-  //   } catch (e) {
-  //     res.status(500).send(e.message);
-  //   }
-  // };
+  private deleteLicense = async (req: Request, res: Response) => {
+    try {
+      const addResult = await this.developerService.deleteLicense(req.body);
+      res.send(addResult);
+    } catch (e) {
+      res.status(500).send(e.message);
+    }
+  };
 
   private disable = async (req: Request, res: Response) => {
     try {
-      console.log(req.body);
-      const disableResult = await this.developerService.disable(req.body);
-      console.log(disableResult);
+      const disableResult = await this.developerService.disable(req.body.devId);
       res.send(disableResult);
     } catch (e) {
       res.status(500).send(e.message);
