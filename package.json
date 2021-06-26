@@ -6,7 +6,7 @@
   "scripts": {
     "start": "NODE_PATH=./dist node dist/index.js",
     "build": "tsc -p .",
-    "dev": "nodemon"
+    "dev": "npm run build && nodemon"
   },
   "repository": {
     "type": "git",
