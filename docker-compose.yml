@@ -28,11 +28,11 @@ services:
       dockerfile: ./src/Dockerfile
       target: base
     volumes:
-      - ./src:/home/acmeApp
-      - ./nodemon.json:/home/acmeApp/nodemon.json
+      - ./:/acmeApp
+      - ./acmeApp/node_modules
     container_name: backend
     expose:
       - '4000'
     ports:
-      - '4001:4000'
+      - '4000:4000'
     command: npm run dev
