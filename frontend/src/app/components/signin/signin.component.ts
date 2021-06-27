@@ -10,8 +10,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class SigninComponent implements OnInit {
   form: FormGroup;
   public loginInvalid = false;
-  private formSubmitAttempt = false;
-
+  private USERNAME = "admin@acme.com";
+  private PASSWORD = "123admin";
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
@@ -24,21 +24,24 @@ export class SigninComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
-    
+
   }
 
   async onSubmit(): Promise<void> {
     this.loginInvalid = false;
-    this.formSubmitAttempt = false;
     if (this.form.valid) {
       try {
         const username = this.form.get('username')?.value;
         const password = this.form.get('password')?.value;
+        if (username === this.USERNAME && password === this.PASSWORD) {
+          this.router.navigateByUrl("/developer")
+        } else {
+          this.loginInvalid = true;
+
+        }
       } catch (err) {
         this.loginInvalid = true;
       }
-    } else {
-      this.formSubmitAttempt = true;
     }
   }
 }
