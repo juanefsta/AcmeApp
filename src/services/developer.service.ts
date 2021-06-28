@@ -36,26 +36,4 @@ export class DeveloperService {
     const dev = DeveloperModel.findByIdAndUpdate(id, {$set: {asset: undefined, license: undefined}}, {new: true});
     return dev.exec();
   }
-
-  public async addAsset(devId: ObjectId, assetId:ObjectId): Promise<IDeveloper | null> {
-    const asset = await AssetModel.findById(assetId).exec();
-    const dev = DeveloperModel.findByIdAndUpdate(devId, {$set: {asset: asset}}, {new: true});
-    return dev.exec();
-  }
-  
-  public async deleteAsset(id: string): Promise<IDeveloper | null>{
-    const dev = DeveloperModel.findByIdAndUpdate(id, {$set: {asset: undefined}}, {new: true});
-    return dev.exec();
-  }
-  
-  public async addlicense(devId: ObjectId, licenseId:ObjectId): Promise<IDeveloper | null> {
-    const license = await LicenseModel.findById(licenseId).exec();
-    const dev = DeveloperModel.findByIdAndUpdate(devId, {$set: {license: license}}, {new: true});
-    return dev.exec();
-  }
-  
-  public deleteLicense(id: string): Promise<IDeveloper | null>{
-    const dev = DeveloperModel.findByIdAndUpdate(id, {$set: {license: undefined}}, {new: true});
-    return dev.exec();
-  }
 }

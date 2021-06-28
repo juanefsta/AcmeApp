@@ -70,8 +70,7 @@ export class DeveloperController {
   
   private addAsset = async (req: Request, res: Response) => {
     try {
-      const addResult = await this.developerService.addAsset(req.body.devId, req.body.assetId);
-      res.send(addResult);
+      res.status(501).send("Not implemented");
     } catch (e) {
       res.status(500).send(e.message);
     }
@@ -79,8 +78,7 @@ export class DeveloperController {
 
   private deleteAsset = async (req: Request, res: Response) => {
     try {
-      const addResult = await this.developerService.deleteAsset(req.body);
-      res.send(addResult);
+      res.status(501).send("Not implemented");
     } catch (e) {
       res.status(500).send(e.message);
     }
@@ -88,8 +86,7 @@ export class DeveloperController {
 
   private addlicense = async (req: Request, res: Response) => {
     try {
-      const addResult = await this.developerService.addlicense(req.body.devId, req.body.licenseId);
-      res.send(addResult);
+      res.status(501).send("Not implemented");
     } catch (e) {
       res.status(500).send(e.message);
     }
@@ -97,8 +94,7 @@ export class DeveloperController {
 
   private deleteLicense = async (req: Request, res: Response) => {
     try {
-      const addResult = await this.developerService.deleteLicense(req.body);
-      res.send(addResult);
+      res.status(501).send("Not implemented");
     } catch (e) {
       res.status(500).send(e.message);
     }
