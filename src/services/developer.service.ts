@@ -1,6 +1,7 @@
 import { ObjectId } from "mongoose";
 import { IAsset } from "../interfaces/asset.interface";
 import { IDeveloper } from "../interfaces/developer.interface";
+import { ILicense } from "../interfaces/license.interface";
 import { AssetModel } from "../models/asset.model";
 import { DeveloperModel } from "../models/developer.model";
 import { LicenseModel } from "../models/license.model";
@@ -10,6 +11,14 @@ export class DeveloperService {
 
   public getAll(): Promise<IDeveloper[]> {
     return DeveloperModel.find({}).exec();
+  }
+
+  public getLicenses(): Promise<ILicense[]> {
+    return LicenseModel.find({}).exec();
+  }
+
+  public getAssets(): Promise<IAsset[]> {
+    return AssetModel.find({}).exec();
   }
 
   public add(dev: IDeveloper): Promise<IDeveloper> {

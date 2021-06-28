@@ -17,12 +17,34 @@ export class DeveloperController {
     this.router.delete("/asset", this.deleteAsset);
     this.router.post("/license", this.addlicense);
     this.router.delete("/license", this.deleteLicense);
+    this.router.get("/assets", this.getAssets);
+    this.router.get("/licenses", this.getLicenses);
   }
 
   private getAll = async (_: Request, res: Response) => {
     try {
       const developer = await this.developerService.getAll();
       res.send(developer);
+    } catch (e) {
+      res.status(500).send(e.message);
+    }
+  };
+
+  
+  private getAssets = async (_: Request, res: Response) => {
+    try {
+      const assets = await this.developerService.getAssets();
+      res.send(assets);
+    } catch (e) {
+      res.status(500).send(e.message);
+    }
+  };
+
+  
+  private getLicenses = async (_: Request, res: Response) => {
+    try {
+      const licenses = await this.developerService.getLicenses();
+      res.send(licenses);
     } catch (e) {
       res.status(500).send(e.message);
     }
@@ -49,18 +71,6 @@ export class DeveloperController {
   private addAsset = async (req: Request, res: Response) => {
     try {
       const addResult = await this.developerService.addAsset(req.body.devId, req.body.assetId);
-      res.send(addResult);
-    } catch (e) {
-      res.status(500).send(e.message);
-    }
-  };
-
-  private delete = async (req: Request, res: Response) => {
-    try {
-      
-      const addResult = await this.developerService.deleteAsset(
-        req.params.id
-      );
       res.send(addResult);
     } catch (e) {
       res.status(500).send(e.message);

@@ -23,7 +23,6 @@ export class DisableDeveloperComponent {
   }
 
   disable(id: any) {
-    console.log(id);
     this._service.disableDeveloper(id).subscribe(res => {
       if (res) {
         this.close();

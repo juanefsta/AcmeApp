@@ -1,8 +1,6 @@
 import { Application } from "express";
 import cors from "cors";
 import express from "express";
-import { LoginController } from "./controllers/login.controller";
-import { LoginService } from "./services/login.service";
 import { DeveloperController } from "./controllers/developer.controller";
 import { DeveloperService } from "./services/developer.service";
 import mongoose from "mongoose";
@@ -24,10 +22,7 @@ class App {
   }
   
   private setControllers() {
-    const loginController = new LoginController(new LoginService());
     const developerController = new DeveloperController(new DeveloperService());
-
-    this.app.use("/login", loginController.router);
     this.app.use("/developer", developerController.router);
   }
 

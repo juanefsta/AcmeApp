@@ -70,7 +70,6 @@ export class AdminComponent implements OnInit {
   }
 
   createDeveloper(): void {
-    console.log('pep')
     this.dialog.open(DeveloperComponent, {
       width: '800px',
       data: {
