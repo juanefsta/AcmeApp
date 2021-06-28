@@ -1,27 +1,70 @@
-# Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.0.
+# Acme App
 
-## Development server
+Application to track the assets and licenses that each employee has assigned.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Documentation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- [ Explanation](https://docs.google.com/document/d/1UJq8lNxkn2yAjeecbelOxOyXnI8_Yapj-bQBX0wnBqM/edit?usp=sharing)
 
-## Build
+  
+## Installation guide
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Clone the project
 
-## Running unit tests
+```bash
+  git clone https://github.com/juanefsta/AcmeApp
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Go to the project directory
 
-## Running end-to-end tests
+```bash
+  cd AcmeApp
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Docker-Build
 
-## Further help
+```bash
+  docker-compose build
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Start Docker
+
+```bash
+  docker-compose up
+```
+
+Go to the frontend project directory
+
+```bash
+  cd frontend
+```
+Install dependences
+
+```bash
+  npm instal
+```
+Serve application
+```bash
+  ng serve
+```
+
+Log In Data
+```bash
+  USERNAME = admin@acme.com
+  PASSWORD = 123admin
+```
+## Tech Stack
+
+**Backend:** NodeJS, Express, MongoDB
+
+**Frontend:** Angular
+
+**Deploy**: Docker
+
+## Authors
+
+- [@juanefsta](https://www.github.com/juanefsta)
+
+  
