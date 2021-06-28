@@ -43,7 +43,7 @@ Go to the frontend project directory
 Install dependences
 
 ```bash
-  npm instal
+  npm install
 ```
 Serve application
 ```bash
