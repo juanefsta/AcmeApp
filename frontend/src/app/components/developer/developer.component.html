@@ -1,29 +1,33 @@
 <div class="example-container">
-    <mat-form-field appearance="fill">
-        <mat-label>Full Name</mat-label>
-        <input matInput #input placeholder="Full Name" [value]="dev.fullname">
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Asset</mat-label>
-        <mat-select>
-            <mat-option value=""></mat-option>
-            <mat-option *ngFor="let asset of assets" [value]="asset">
-                {{asset.brand + asset.model}}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>License</mat-label>
-        <mat-select>
-            <mat-option value=""></mat-option>
-            <mat-option *ngFor="let license of licenses" [value]="license">
-                {{license.software}}
-            </mat-option>
-        </mat-select>
-    </mat-form-field>
 
+    <form class="example-form" [formGroup]="devForm">
+        <mat-form-field appearance="fill">
+            <mat-label>Full Name</mat-label>
+            <input matInput  type="text" formControlName="fullname" id="fullname" #input placeholder="Full Name">
+            <mat-error *ngIf="hasError('fullname', 'required')">Required</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Asset</mat-label>
+            <mat-select [(value)]="selectedAsset">
+                <mat-option value="">-- Unassigned --</mat-option>
+                <mat-option *ngFor="let asset of assets" [value]="asset">
+                    {{asset.brand + ' ' + asset.model}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>License</mat-label>
+            <mat-select [(value)]="selectedLicense">
+                <mat-option value="">-- Unassigned --</mat-option>
+                <mat-option *ngFor="let license of licenses" [value]="license">
+                    {{license.software}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
     <div class="modal-footer">
         <button mat-flat-button (click)="close()">Close</button>
-        <button mat-flat-button (click)="edit()">Edit</button>
+        <button mat-flat-button *ngIf="isEdit" (click)="edit()">Edit</button>
+        <button mat-flat-button *ngIf="!isEdit" (click)="create()">Create</button>
     </div>
 </div>

@@ -20,7 +20,7 @@
         <th mat-header-cell *matHeaderCellDef mat-header> Asset </th>
         <td mat-cell *matCellDef="let row ">
             <ng-container *ngIf="row.asset; else defaultAsset">
-                {{row.asset.brand + row.asset.model}}
+                {{row.asset.brand}}
             </ng-container>
         </td>
         <ng-template #defaultAsset>
@@ -55,7 +55,7 @@
 </table>
 <mat-paginator class="mat-paginator-sticky" [pageSizeOptions]="[10, 25, 50]"></mat-paginator>
 <div class="sticky-button">
-    <button mat-fab mat-raised-button class="buttonCreate">
+    <button mat-fab mat-raised-button class="buttonCreate" (click)="createDeveloper()">
         <mat-icon>add</mat-icon>
     </button>
 </div>

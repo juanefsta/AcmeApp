@@ -32,7 +32,7 @@ export class AdminService {
     }
 
     disableDeveloper(DeveloperId: any): Observable<any> {
-        return this.http.delete(BACKEND_URL + DISABLE_DEVELOPER + DeveloperId);
+        return this.http.put(BACKEND_URL + DISABLE_DEVELOPER, {devId: DeveloperId});
     }
 
     addAsset(devId: any): Observable<any> {

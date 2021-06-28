@@ -10,12 +10,14 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { AdminComponent } from './components/admin/admin.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DeveloperComponent } from './components/developer/developer.component';
+import { DisableDeveloperComponent } from './components/developer/disable-developer/disable-developer.component';
 @NgModule({
   declarations: [
     AppComponent,
     SigninComponent,
     AdminComponent,
-    DeveloperComponent
+    DeveloperComponent,
+    DisableDeveloperComponent
   ],
   imports: [
     BrowserModule,
