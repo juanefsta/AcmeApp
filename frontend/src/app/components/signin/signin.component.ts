@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class SigninComponent implements OnInit {
   form: FormGroup;
   public loginInvalid = false;
-  private USERNAME = "admin@acme.com";
+  private EMAIL = "admin@acme.com";
   private PASSWORD = "123admin";
   constructor(
     private fb: FormBuilder,
@@ -33,8 +33,8 @@ export class SigninComponent implements OnInit {
       try {
         const username = this.form.get('username')?.value;
         const password = this.form.get('password')?.value;
-        if (username === this.USERNAME && password === this.PASSWORD) {
-          this.router.navigateByUrl("/developer")
+        if (username === this.EMAIL && password === this.PASSWORD) {
+          this.router.navigateByUrl("/admin")
         } else {
           this.loginInvalid = true;
 

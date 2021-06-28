@@ -6,11 +6,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './angular-material.module';
 import { SigninComponent } from './components/signin/signin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatDialogModule} from '@angular/material/dialog';
+import { AdminComponent } from './components/admin/admin.component';
+import { HttpClientModule } from '@angular/common/http';
 import { DeveloperComponent } from './components/developer/developer.component';
 @NgModule({
   declarations: [
     AppComponent,
     SigninComponent,
+    AdminComponent,
     DeveloperComponent
   ],
   imports: [
@@ -19,6 +23,8 @@ import { DeveloperComponent } from './components/developer/developer.component';
     BrowserAnimationsModule, 
     AngularMaterialModule,
     FormsModule,
+    HttpClientModule,
+    MatDialogModule,
     ReactiveFormsModule,
   ],
   providers: [],

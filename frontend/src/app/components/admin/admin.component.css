@@ -1,0 +1,25 @@
+.admninBar{
+    background-color: #fbdee9;
+    text-align: end;
+    color: #8e1242;
+}
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+.sticky-button{
+    top: auto !important;
+    right: 5vw !important;
+    bottom: 50px !important;
+    left: auto !important;
+    position: fixed !important;
+}
+
+.buttonCreate{
+    background-color: #f087b0;
+}
+
+table{
+    width: 100%;
+    margin-top: 25px;
+}

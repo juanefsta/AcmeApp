@@ -7,8 +7,12 @@ body {
 
 body {
 	min-height: 100vh;
-	background-color: #e5e5e5;
+	background-color: #fdf0f5;
 	font-family: 'Roboto', sans-serif;
+}
+
+.routerContainer{
+	margin-top: 1%;
 }
 
 .app-header {
@@ -27,7 +31,7 @@ body {
 
 .positronx {
 	text-decoration: none;
-	color: #ffffff;
+	color: #fdf0f5;
 }
 
 .box {
@@ -37,7 +41,7 @@ body {
 	float: left;
 	padding: 60px 50px 40px 50px;
 	width: 100%;
-	background: #fff;
+	background: #fdf0f5;
 	border-radius: 10px;
 	transform: scale(1);
 	-webkit-transform: scale(1);

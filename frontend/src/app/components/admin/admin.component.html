@@ -1,0 +1,61 @@
+<mat-toolbar class="admninBar">
+    <span>
+        <button mat-button routerLink="#">Developers</button>
+    </span>
+    <span>
+        <button mat-button routerLink="#">Assets</button>
+    </span>
+    <span>
+        <button mat-button routerLink="#">Licenses</button>
+    </span>
+    <span class="example-spacer"></span>
+    Welcome, {{username}}
+</mat-toolbar>
+<table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="fullName">
+        <th mat-header-cell *matHeaderCellDef mat-header> FullName </th>
+        <td mat-cell *matCellDef="let row"> {{row.fullname}} </td>
+    </ng-container>
+    <ng-container matColumnDef="asset">
+        <th mat-header-cell *matHeaderCellDef mat-header> Asset </th>
+        <td mat-cell *matCellDef="let row ">
+            <ng-container *ngIf="row.asset; else defaultAsset">
+                {{row.asset.brand + row.asset.model}}
+            </ng-container>
+        </td>
+        <ng-template #defaultAsset>
+            Not assigned
+        </ng-template>
+    </ng-container>
+    <ng-container matColumnDef="license">
+        <th mat-header-cell *matHeaderCellDef mat-header> License </th>
+        <td mat-cell *matCellDef="let row">
+            <ng-container *ngIf="row.license; else defaultLicense">
+                {{row.license.software}}
+            </ng-container>
+        </td>
+        <ng-template #defaultLicense>
+            Not assigned
+        </ng-template>
+    </ng-container>
+    <ng-container matColumnDef="edit">
+        <th mat-header-cell class="tableHeader" *matHeaderCellDef mat-header>Edit</th>
+        <td mat-cell *matCellDef="let row" class="horizontalItemRow">
+            <a (click)="edit(row)"><i class="material-icons customIcon">assignment</i></a>
+        </td>
+    </ng-container>
+    <ng-container matColumnDef="disable">
+        <th mat-header-cell *matHeaderCellDef mat-header>Disable</th>
+        <td mat-cell *matCellDef="let row">
+            <a (click)="disable(row)"><i class="material-icons deleteIcon">delete</i></a>
+        </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns; sticky: true"></tr>
+</table>
+<mat-paginator class="mat-paginator-sticky" [pageSizeOptions]="[10, 25, 50]"></mat-paginator>
+<div class="sticky-button">
+    <button mat-fab mat-raised-button class="buttonCreate">
+        <mat-icon>add</mat-icon>
+    </button>
+</div>
