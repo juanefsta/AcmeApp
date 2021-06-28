@@ -7,6 +7,7 @@ Application to track the assets and licenses that each employee has assigned.
 ## Documentation
 
 - [ Explanation](https://docs.google.com/document/d/1UJq8lNxkn2yAjeecbelOxOyXnI8_Yapj-bQBX0wnBqM/edit?usp=sharing)
+- [ Brainstorm Notes and Tasks tracking](https://whimsical.com/acmeapp-H58PjrWZhcfjiC1ztzCBSk)
 
   
 ## Installation guide
